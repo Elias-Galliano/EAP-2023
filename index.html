@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz EAP 2023 - 3º Sargento BM Combatente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f94144;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTAINER PRINCIPAL ===== */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        /* ===== HEADER MODERNO ===== */
+        .modern-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZD0iTTIxLDMwIEMyMSwzMCA0MCwzMCA1MCw0MCBDNjAsMzAgNzksMzAgNzksMzAgQzc5LDMwIDg1LDM1IDg1LDQwIEM4NSw0NSA3OSw1MCA3OSw1MCBDNzksNTAgNjAsNTAgNTAsNjAgQzQwLDUwIDIxLDUwIDIxLDUwIEMyMSw1MCAxNSw0NSAxNSw0MCBDMTUsMzUgMjEsMzAgMjEsMzAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=');
+            background-size: 150px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            text-align: center;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .welcome-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: left;
+        }
+
+        .welcome-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .start-btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(248, 37, 133, 0.5);
+            background: #ff2d95;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            justify-content: center;
+        }
+
+        /* ===== SEÇÃO DE CONTEÚDO ===== */
+        .content-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .about-card, .details-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .card-content ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .card-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .card-content li i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .highlight {
+            background: var(--gradient-light);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        /* ===== SEÇÃO DO QUIZ ===== */
+        .quiz-section {
+            display: none;
+            padding: 20px 15px;
+        }
+
+        .progress-container {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .question-header {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-difficulty {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .difficulty-easy { background: var(--success); }
+        .difficulty-medium { background: var(--warning); }
+        .difficulty-hard { background: var(--danger); }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 16px 15px;
+            background: var(--light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .option.selected.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            transform: translateY(-2px);
+        }
+
+        .option.selected.incorrect {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+            transform: translateY(-2px);
+        }
+
+        .option.correct-answer {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            animation: pulse 0.6s ease;
+        }
+
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-letter,
+        .option.correct-answer .option-letter {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feedback-icon {
+            margin-left: auto;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .option.selected.correct .feedback-icon,
+        .option.correct-answer .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.selected.incorrect .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.locked {
+            cursor: not-allowed;
+        }
+
+        .option.locked:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 10px;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-next {
+            background: var(--secondary);
+        }
+
+        /* ===== RESULTADOS ===== */
+        .results {
+            text-align: center;
+            padding: 30px 20px;
+            display: none;
+        }
+
+        .results-header {
+            margin-bottom: 25px;
+        }
+
+        .score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0;
+        }
+
+        .performance {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .performance-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+        }
+
+        .performance-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .performance-easy { color: var(--success); }
+        .performance-medium { color: var(--warning); }
+        .performance-hard { color: var(--danger); }
+
+        .message {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+            line-height: 1.5;
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .bounce {
+            animation: bounce 0.6s;
+        }
+
+        /* ===== MELHORIAS PARA SMARTPHONE ===== */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 16px;
+            }
+            
+            .modern-header {
+                padding: 20px 15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .welcome-card {
+                padding: 15px;
+            }
+            
+            .content-section {
+                padding: 25px 15px;
+            }
+            
+            .about-card, .details-card {
+                padding: 20px 15px;
+            }
+            
+            .quiz-section {
+                padding: 15px 10px;
+            }
+            
+            .question {
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 14px 12px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .results {
+                padding: 25px 15px;
+            }
+            
+            .score {
+                font-size: 3rem;
+            }
+        }
+
+        /* ===== MELHORIAS PARA TABLETS ===== */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .logo-text {
+                text-align: left;
+            }
+            
+            .features {
+                flex-direction: row;
+                max-width: 100%;
+            }
+            
+            .performance {
+                flex-direction: row;
+            }
+            
+            .navigation {
+                flex-direction: row;
+            }
+        }
+
+        /* ===== MELHORIAS PARA DESKTOP ===== */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 900px;
+            }
+            
+            .content-section {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <!-- HEADER MODERNO -->
+        <header class="modern-header">
+            <div class="header-bg"></div>
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="logo-fallback" id="logo-fallback">
+                            <i class="fas fa-fire-extinguisher" style="font-size: 3rem; color: #4361ee;"></i>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Quiz EAP 2023</h1>
+                        <div class="subtitle">3º Sargento BM Combatente</div>
+                    </div>
+                </div>
+
+                <div class="welcome-card">
+                    <h2><i class="fas fa-fire"></i> Bem-vindo ao Quiz EAP 2023!</h2>
+                    <p>Teste seus conhecimentos para o Exame de Aptidão Profissional do Corpo de Bombeiros Militar de Minas Gerais com 40 questões baseadas no conteúdo oficial.</p>
+                </div>
+
+                <div class="cta-section">
+                    <button class="start-btn" id="start-btn">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </button>
+
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-star" style="color: #4cc9f0;"></i>
+                            <span>40 Perguntas</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle" style="color: #f8961e;"></i>
+                            <span>Feedback Imediato</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap" style="color: #f94144;"></i>
+                            <span>Prepare-se para o EAP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SEÇÃO DE CONTEÚDO -->
+        <section class="content-section">
+            <div class="about-card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre o EAP 2023</h2>
+                <div class="card-content">
+                    <p>O Exame de Aptidão Profissional (EAP) 2023 é destinado aos militares do Corpo de Bombeiros Militar de Minas Gerais (CBMMG) que buscam progressão para a graduação de 3º Sargento BM Combatente.</p>
+                    <p>A prova contém 40 questões objetivas distribuídas em três áreas de conhecimento: Legislação Institucional, Conhecimentos Jurídicos e Conhecimentos Profissionais.</p>
+                    <p><span class="highlight">Duração: 4 horas</span> - Prova com consulta ao material individual do candidato.</p>
+                </div>
+            </div>
+
+            <div class="details-card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Estrutura da Prova</h2>
+                <div class="card-content">
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Legislação Institucional:</strong> Questões 1 a 12</li>
+                        <li><i class="fas fa-check"></i> <strong>Conhecimentos Jurídicos:</strong> Questões 13 a 24</li>
+                        <li><i class="fas fa-check"></i> <strong>Conhecimentos Profissionais:</strong> Questões 25 a 40</li>
+                        <li><i class="fas fa-check"></i> <strong>Total:</strong> 40 questões objetivas</li>
+                        <li><i class="fas fa-check"></i> <strong>Material:</strong> Prova com consulta permitida</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DO QUIZ -->
+        <div class="quiz-section" id="quiz-section">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-text" id="progress-text">Pergunta 1 de 40</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
+                <!-- Perguntas serão inseridas aqui pelo JavaScript -->
+            </div>
+
+            <div class="navigation">
+                <button id="prev-btn" disabled>
+                    <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button id="next-btn" class="btn-next">
+                    Próxima <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SEÇÃO DE RESULTADOS -->
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2><i class="fas fa-trophy"></i> Resultado Final</h2>
+            </div>
+            <div class="score" id="score">0/0</div>
+
+            <div class="performance" id="performance">
+                <div class="performance-item">
+                    <div class="performance-value performance-easy" id="correct-legislacao">0</div>
+                    <div>Legislação</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-medium" id="correct-juridico">0</div>
+                    <div>Jurídico</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-hard" id="correct-profissional">0</div>
+                    <div>Profissional</div>
+                </div>
+            </div>
+
+            <div class="message" id="message"></div>
+
+            <button id="restart-btn" style="background: var(--success);">
+                <i class="fas fa-redo"></i> Fazer Quiz Novamente
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // BANCO DE PERGUNTAS - EAP 2023 (40 QUESTÕES)
+        // =============================================
+
+        const allQuestions = [
+            // LEGISLAÇÃO INSTITUCIONAL (Questões 1-12)
+            {
+                id: 1,
+                question: "Conforme o Regulamento de Promoção de Praças das Instituições Militares do Estado de Minas Gerais, as alternativas são verdadeiras, EXCETO:",
+                options: [
+                    "Interstício é o período mínimo, contado dia a dia, em que a praça deverá permanecer na graduação para que possa ser cogitada para a promoção pelos critérios de merecimento ou de antiguidade.",
+                    "O militar pronto para o serviço é considerado possuidor de aptidão física para o exercício das funções inerentes à graduação que irá ocupar.",
+                    "O resultado do EAP não alterará a ordem de classificação por antiguidade dos candidatos considerados aptos.",
+                    "A praça deverá obter resultado igual ou superior a 70% (setenta por cento) na Avaliação Anual de Desempenho Profissional - AADP."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois a praça deve obter resultado igual ou superior a 70% na AADP para promoção por merecimento, mas não para antiguidade.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 2,
+                question: "O Treinamento Profissional Básico (TPB) é a atividade que visa à atualização e o aperfeiçoamento do bombeiro militar, com vistas ao cumprimento de suas missões constitucionais, portanto é INCORRETO afirmar que:",
+                options: [
+                    "O militar impedido de realizar a ATP/Tiro Prático em razão de dispensa saúde temporária terá o prazo de 10 dias úteis, após cessado o motivo de seu impedimento, para apresentar requerimento formal à Administração para sua submissão ao teste, conforme necessidade, o qual será aplicado até 30 de novembro, caso contrário será considerado INAPTO",
+                    "O militar será convocado em tempo hábil, por sua Unidade, em via impressa ou por meio eletrônico institucional para submissão à ATP/Tiro Prático. Porém, o militar que não for convocado para a realização da ATP/Tiro Prático deverá manifestar-se formalmente ao seu chefe direto, até 10 de novembro do ano corrente, caso contrário será considerado inapto na ATP/Tiro Prático.",
+                    "Caso o militar convocado possua dispensa temporária, este informará de sua situação à administração em até cinco dias úteis, comunicando o período de dispensa.",
+                    "Terminada a licença maternidade, a militar terá até 10 dias para solicitar formalmente à Administração a aplicação da ATP/Tiro Prático, que será aplicado até 30 de novembro."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois o prazo para solicitação após licença maternidade é diferente do estabelecido na alternativa.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 3,
+                question: "Conhecer a identidade organizacional do CBMMG de maneira mais profunda ajuda convergir as ações institucionais que permitem a consecução de cada objetivo estratégico, nesse sentido, é o PROPÓSITO do CBMMG:",
+                options: [
+                    "Salvar e valorizar vidas!",
+                    "Salvar e valorizar vidas, de modo a inspirar pessoas e levar esperança!",
+                    "Salvar e valorizar vidas, de modo a inspirar pessoas!",
+                    "Salvar!"
+                ],
+                correct: 1,
+                explanation: "O propósito do CBMMG é 'Salvar e valorizar vidas, de modo a inspirar pessoas e levar esperança!'",
+                difficulty: "easy",
+                category: "Legislação"
+            },
+            {
+                id: 4,
+                question: "Considerando a Resolução nº 949/2020, enumere a primeira coluna de acordo com as definições da segunda coluna e, em seguida, ASSINALE a alternativa que apresenta a sequência CORRETA, do Item I ao Item VI.",
+                options: [
+                    "3; 4; 5; 1; 6 e 2.",
+                    "6; 5;1; 2; 3 e 4.",
+                    "6; 4; 5; 1; 2 e 3.",
+                    "3; 4; 4; 2; 6 e 1."
+                ],
+                correct: 0,
+                explanation: "A sequência correta é 3; 4; 5; 1; 6 e 2, conforme definições da Resolução nº 949/2020.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 5,
+                question: "A movimentação dos militares no Corpo de Bombeiros Militar de Minas Gerais tem por finalidade regular a passagem dos oficiais e praças pelas diferentes funções, de modo a satisfazer as necessidades do serviço e distribuir equitativamente os ônus e as vantagens delas decorrentes, portanto é correto afirmar, EXCETO:",
+                options: [
+                    "A movimentação por necessidade do serviço, do mesmo militar, em período inferior a 02 (dois) anos, que gere ônus para o Estado, somente poderá ocorrer em casos excepcionais, devidamente comprovados, com homologação prévia do Chefe do Estado Maior.",
+                    "Os requerimentos de movimentação dentro da própria Unidade e dentro do mesmo sistema hierárquico serão solucionados pelo respectivo Diretor, Comandante, Chefe, nos limites do artigo 5º da Resolução 596/2015.",
+                    "São vedadas as movimentações quando inexistir claro no efetivo da Unidade ou Fração de destino, ainda que seja permuta.",
+                    "Fica proibida a concessão de férias ao militar movimentado, salvo se estiverem previstas e lançadas antes da publicação da movimentação."
+                ],
+                correct: 2,
+                explanation: "A afirmativa incorreta é a terceira, pois as movimentações por permuta podem ocorrer mesmo quando não há claro no efetivo da Unidade de destino.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 6,
+                question: "As ações de Proteção e Defesa Civil desenvolvidas pelo CBMMG são divididas em dois grandes grupos, que agregam naturezas voltadas para a Gestão do Risco de Desastres e as ocorrências de Gestão do Desastre, portanto é CORRETO afirmar que:",
+                options: [
+                    "Apenas as alternativas I e II são verdadeiras.",
+                    "Apenas as alternativas II, II e IV são verdadeiras.",
+                    "Nenhuma das alternativas são verdadeiras.",
+                    "Todas as alternativas são verdadeiras."
+                ],
+                correct: 0,
+                explanation: "Apenas as afirmativas I e II são verdadeiras. A afirmativa III está incorreta pois as ações de resposta não são as últimas a serem realizadas, e a IV está incorreta pois as Ocorrências de Pronta Resposta não são realizadas para preservar vidas durante atendimentos de urgência e emergência.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 7,
+                question: "Considerando o contido na Resolução nº 808/2018, que dispõe e define os procedimentos para realização da Avaliação Anual de Desempenho e Produtividade, analise as alternativas a seguir e assinale a INCORRETA.",
+                options: [
+                    "A AADP é composta pelos critérios de disciplina, habilidades profissionais, aptidão física e disponibilidade para o trabalho.",
+                    "Para a aferição do conceito disciplinar do militar recém incluído no CBMMG será utilizada a pontuação de 6 (seis) pontos para o conceito 'B' com pontuação de zero ponto, salvo se for punido disciplinarmente, situação em que se observará a pontuação de 5 (cinco) pontos para o conceito 'B' com pontuação negativa superior a 25 (vinte e cinco) pontos.",
+                    "A AADP é realizada também para fim de requisito para promoção por merecimento ou antiguidade.",
+                    "Do resultado da AADP caberá recurso, no prazo de cinco dias úteis, contados da notificação do militar avaliado."
+                ],
+                correct: 1,
+                explanation: "A alternativa incorreta é a segunda, pois a pontuação para o conceito disciplinar do militar recém incluído no CBMMG não é conforme descrito.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 8,
+                question: "O Bombeiro Militar mesmo fora do exercício da função pública, ao se utilizar das mídias e redes sociais deve sempre buscar a preservação da imagem institucional de modo a não permitir que a expressão de suas convicções pessoais ou exposição de sua vida privada reflita negativamente na imagem do CBMMG. Ao fazer uso das mídias e redes sociais, é vedado ao militar:",
+                options: [
+                    "Apenas as alternativas I e II são verdadeiras.",
+                    "Apenas as alternativas II, II e IV são verdadeiras.",
+                    "Apenas as alternativas II, III e V são verdadeiras.",
+                    "Todas as alternativas são verdadeiras."
+                ],
+                correct: 3,
+                explanation: "Todas as alternativas são verdadeiras, pois todas representam condutas vedadas ao militar no uso de mídias e redes sociais.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 9,
+                question: "Considerando a Emenda à Constituição nº 57/2003, observe as afirmações a seguir e marque a alternativa CORRETA.",
+                options: [
+                    "Apenas as alternativas II e III são verdadeiras.",
+                    "Apenas as alternativas II, III e IV são verdadeiras.",
+                    "Apenas as alternativas I, III e IV são verdadeiras.",
+                    "Todas as alternativas são verdadeiras."
+                ],
+                correct: 2,
+                explanation: "Apenas as afirmativas I, III e IV são verdadeiras. A afirmativa II está incorreta pois o servidor público civil e militar do Estado de Minas Gerais em exercício na data de publicação desta emenda à Constituição que for nomeado para outro cargo no Estado em razão de aprovação em concurso público, tem direito à percepção dos adicionais por tempo de serviço e das férias-prêmio adquiridos.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 10,
+                question: "De acordo com o Decreto 48.355/2022, que dispõe sobre o Sistema Integrado de Segurança Pública - Sisp e institui a Base Integrada de Segurança Pública Bisp e dá outras providências, é INCORRETO afirmar:",
+                options: [
+                    "É vedada a restrição do acesso aos dados constantes na base de dados da Base Integrada de Segurança Pública – Bisp, de qualquer registro ou a demora injustificada na prestação de informações, ressalvado o sigilo legal relacionado ao conteúdo de procedimentos investigativos e questões institucionais de controle interno e gestão administrativa.",
+                    "O Registro de Eventos de Defesa Social – Reds é um sistema relativo à segurança pública de informação incluídos na formação Base Integrada de Segurança Pública – Bisp.",
+                    "O Tribunal de Justiça de Minas Gerais e ao Ministério Público do Estado de Minas Gerais não podem compor Sistema Integrado de Segurança Pública – Sisp",
+                    "A Base Integrada de Segurança Pública – Bisp tem a finalidade de possibilitar a informação e o conhecimento relacionados às ocorrências policiais ou de bombeiros, à investigação criminal, ao processo judicial, às medidas socioeducativas e à execução penal de forma integrada para os órgãos previstos no art. 5º."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois o Tribunal de Justiça de Minas Gerais e o Ministério Público do Estado de Minas Gerais podem compor o Sistema Integrado de Segurança Pública – Sisp.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 11,
+                question: "Sobre os procedimentos relativos às substituições temporárias no CBMMG, análise as afirmativas a seguir, atribuindo (V) para afirmativa verdadeira e (F) para afirmativa falsa, em seguida marque a alternativa correspondente à resposta CORRETA:",
+                options: [
+                    "V; F; F; V.",
+                    "V; F; F; F.",
+                    "V; V; F; F.",
+                    "F; V; F; V."
+                ],
+                correct: 2,
+                explanation: "A sequência correta é V; V; F; F. A primeira e segunda afirmativas são verdadeiras, enquanto a terceira e quarta são falsas.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 12,
+                question: "Em relação a concessão de diária nas Instituições Militares Estaduais - IME - de Minas Gerais, é CORRETO afirmar:",
+                options: [
+                    "Apenas as alternativas I e II são verdadeiras.",
+                    "Apenas as alternativas II, II e III são verdadeiras.",
+                    "Nenhuma das alternativas são verdadeiras.",
+                    "Todas as alternativas são verdadeiras."
+                ],
+                correct: 0,
+                explanation: "Apenas as afirmativas I e II são verdadeiras. A afirmativa III está incorreta pois a diária parcial é concedida no caso de deslocamento por período superior a seis horas e inferior a doze horas, hipótese em que será devida apenas a parcela de alimentação. A afirmativa IV está incorreta pois a parcela de diária relativa a pousada não é devida ao militar que dispuser de alojamento gratuito assegurado pelo Estado.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            // CONHECIMENTOS JURÍDICOS (Questões 13-24)
+            {
+                id: 13,
+                question: "Considerando o disposto na Lei Estadual nº 14.184/2002, que regula o processo administrativo no âmbito da administração pública estadual, marque a alternativa INCORRETA:",
+                options: [
+                    "Administração Pública obedecerá, dentre outros, aos princípios da legalidade, impessoalidade, moralidade, publicidade, finalidade, motivação, razoabilidade, eficiência, ampla defesa, do contraditório e da transparência.",
+                    "O processo pode iniciar-se de ofício ou a pedido do interessado.",
+                    "A autenticação de cópia de documento não pode ser feita por funcionário do órgão em que tramitar o processo.",
+                    "Só será exigido reconhecimento de firma por imposição legal ou em caso de dúvida sobre a autenticidade do documento."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois a autenticação de cópia de documento pode ser feita por funcionário do órgão em que tramitar o processo.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 14,
+                question: "Assinale a alternativa CORRETA:",
+                options: [
+                    "Todas as alternativas estão corretas.",
+                    "Todas as alternativas estão incorretas.",
+                    "Apenas a alternativa IV está incorreta.",
+                    "Apenas as alternativas II e III estão corretas."
+                ],
+                correct: 3,
+                explanation: "Apenas as alternativas II e III estão corretas. A alternativa I está incorreta pois é possível que uma pessoa condenada por Homicídio Culposo receba pena inferior a 1 ano. A alternativa IV está incorreta pois a qualificação de um homicídio como FEMINICÍDIO influi na pena que pode ser aplicada, não apenas no regime.",
+                difficulty: "hard",
+                category: "Jurídico"
+            },
+            {
+                id: 15,
+                question: "Considere o Decreto-Lei nº 1.002/1969 e suas atualizações. Marque a alternativa INCORRETA:",
+                options: [
+                    "A designação de escrivão para o inquérito caberá ao respectivo encarregado, se não tiver sido feita pela autoridade que lhe deu delegação para aquele fim, recaindo em segundo ou primeiro-tenente, se o indiciado for oficial, e em sargento, subtenente ou suboficial, nos demais casos.",
+                    "O inquérito deverá terminar dentro em vinte dias, se o indiciado estiver preso, contado esse prazo a partir do dia em que se executar a ordem de prisão; ou no prazo de sessenta dias, quando o indiciado estiver solto, contados a partir da data em que se instaurar o inquérito.",
+                    "Os autos do inquérito serão remetidos ao auditor da Circunscrição Judiciária Militar onde ocorreu a infração penal, acompanhados dos instrumentos desta, bem como dos objetos que interessem à sua prova.",
+                    "A ação penal é pública e somente pode ser promovida por denúncia do Ministério Público Militar."
+                ],
+                correct: 1,
+                explanation: "A alternativa incorreta é a segunda, pois o prazo para término do inquérito quando o indiciado estiver solto é de 30 dias, não 60 dias.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 16,
+                question: "Assinale a opção que NÃO CONSTITUI um OBJETIVO FUNDAMENTAL da República Federativa do Brasil:",
+                options: [
+                    "Erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais.",
+                    "Defesa da paz.",
+                    "Promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação.",
+                    "Garantir o desenvolvimento nacional."
+                ],
+                correct: 1,
+                explanation: "A alternativa que não constitui objetivo fundamental é a segunda, pois a 'defesa da paz' não está expressamente prevista como objetivo fundamental na Constituição Federal.",
+                difficulty: "easy",
+                category: "Jurídico"
+            },
+            {
+                id: 17,
+                question: "Assinale a opção que NÃO CORRESPONDE a um princípio fundamental da Administração Pública:",
+                options: [
+                    "A moral administrativa é um conceito individual e subjetivo, portanto os atos administrativos não necessitam observá-la, bastando que estejam dentro da legalidade.",
+                    "A autoridade pública, ao decidir em favor ou desfavor de alguém, não poderá se deixar influenciar pela cor da pele, crença ou ideologia política dessa pessoa.",
+                    "Os atos administrativos devem ser realizados buscando-se sua máxima eficiência.",
+                    "A publicidade dos atos administrativos é a regra geral, devendo as exceções estar devidamente amparadas nas normas vigentes."
+                ],
+                correct: 0,
+                explanation: "A alternativa que não corresponde a um princípio fundamental é a primeira, pois a moral administrativa é um princípio constitucional que deve ser observado pela Administração Pública, não sendo apenas um conceito individual e subjetivo.",
+                difficulty: "easy",
+                category: "Jurídico"
+            },
+            {
+                id: 18,
+                question: "Um graduado foi designado para comandar uma fração de bombeiros, exercendo a função de Comandante de Pelotão. Chegando na fração, sentindo-se poderoso, resolveu liberar todo o efetivo de serviço, de modo a fazer um churrasco na casa da sogra e ter seus colegas de trabalho no evento familiar, deixando a cidade em que serve totalmente desguarnecida de efetivo. Por ter desguarnecido a cidade, um incêndio que ocorreu ao lado do quartel, que possui um hidrante em perfeito funcionamento, não foi utilizado para salvar a vida das pessoas que dormiam na residência. A causa do incêndio foi uma vela acesa. Dessa situação, morreram dez pessoas e duas ficaram com queimaduras graves, que causou enfermidade duradoura e causou incapacidade permanente para o trabalho. De acordo com o Decreto-Lei n. 1.001/1969, assinale a (s) conduta (s) que melhor se amolda ao ato praticado apenas pelo graduado:",
+                options: [
+                    "Homicídio doloso.",
+                    "Lesão grave.",
+                    "Prevaricação.",
+                    "Todas as alternativas anteriores."
+                ],
+                correct: 3,
+                explanation: "Todas as alternativas anteriores se amoldam ao ato praticado pelo graduado, pois sua conduta configurou homicídio doloso, lesão grave e prevaricação.",
+                difficulty: "hard",
+                category: "Jurídico"
+            },
+            {
+                id: 19,
+                question: "Considerando os direitos e deveres individuais e coletivos constantes na Constituição da República Federativa do Brasil de 1988, marque a alternativa INCORRETA:",
+                options: [
+                    "É garantido o direito à propriedade, devendo esta atender à sua função social.",
+                    "É livre a expressão da atividade intelectual, artística, científica e de comunicação, independentemente de censura ou licença, assim como a manifestação do pensamento, sendo vedado o anonimato.",
+                    "Sempre que conveniente ao serviço público, a autoridade poderá usar de propriedade particular, assegurada ao proprietário indenização ulterior, caso ocorram danos significativos.",
+                    "Apenas as leis vigentes poderão obrigar alguém a fazer ou deixar de fazer algo"
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois a autoridade não pode usar propriedade particular apenas por conveniência do serviço público, mas sim por necessidade ou utilidade pública, nos termos da lei.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 20,
+                question: "Considerando a Declaração Universal dos Direitos Humanos, e sua aplicação no ordenamento jurídico brasileiro, assinale a alternativa CORRETA:",
+                options: [
+                    "Apenas as alternativas I e II estão corretas.",
+                    "Todas as alternativas estão incorretas.",
+                    "Apenas a alternativa II está correta.",
+                    "Apenas as alternativas III e IV estão corretas."
+                ],
+                correct: 0,
+                explanation: "Apenas as alternativas I e II estão corretas. A alternativa III está incorreta pois no Brasil não são proibidas por lei religiões ou seitas satanistas. A alternativa IV está incorreta pois a proteção ao desemprego é prevista como um direito dos seres humanos na Declaração Universal dos Direitos Humanos.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 21,
+                question: "De acordo com a Lei Federal nº 12.334/2010, são OBJETIVOS da Política Nacional de Segurança de Barragens (PNSB), EXCETO:",
+                options: [
+                    "Promover o monitoramento e o acompanhamento das ações de segurança empregadas pelos responsáveis por barragens.",
+                    "Coligir informações que subsidiem o gerenciamento da segurança de barragens pelos governos.",
+                    "Fomentar a cultura de segurança de barragens e gestão de riscos.",
+                    "Criar condições para que se reduza o universo de controle de barragens pelo poder público, com base na fiscalização, orientação e correção das ações de segurança."
+                ],
+                correct: 3,
+                explanation: "A alternativa que não é objetivo da PNSB é a quarta, pois a política não visa reduzir o universo de controle de barragens pelo poder público, mas sim fortalecer esse controle.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 22,
+                question: "De acordo com a Lei nº 8.429/1992, considerando suas atualizações e alterações, marque a alternativa INCORRETA:",
+                options: [
+                    "Se houver indícios de ato de improbidade, a autoridade que conhecer dos fatos representará ao Ministério Público competente, para as providências necessárias.",
+                    "Se configura improbidade a mera nomeação ou indicação política por parte dos detentores de mandatos eletivos, não sendo necessária a aferição de dolo com finalidade ilícita por parte do agente.",
+                    "Na ação por improbidade administrativa poderá ser formulado, em caráter antecedente ou incidente, pedido de indisponibilidade de bens dos réus, a fim de garantir a integral recomposição do erário ou do acréscimo patrimonial resultante de enriquecimento ilícito.",
+                    "A ação por improbidade administrativa é repressiva, de caráter sancionatório, destinada à aplicação de sanções de caráter pessoal previstas nesta Lei, e não constitui ação civil, vedado seu ajuizamento para o controle de legalidade de políticas públicas e para a proteção do patrimônio público e social, do meio ambiente e de outros interesses difusos, coletivos e individuais homogêneos."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois a ação por improbidade administrativa constitui ação civil pública e pode ser ajuizada para a proteção do patrimônio público e social, do meio ambiente e de outros interesses difusos, coletivos e individuais homogêneos.",
+                difficulty: "hard",
+                category: "Jurídico"
+            },
+            {
+                id: 23,
+                question: "Segundo dispõe a Constituição Estadual de Minas Gerais de 1989, marque a alternativa INCORRETA:",
+                options: [
+                    "O agente público motivará o ato administrativo que praticar, explicitando-lhe o fundamento legal e o fundamento fático. A finalidade não carece de ser explicitada no ato administrativo.",
+                    "A atividade administrativa do Estado se organizará em sistemas, principalmente a de planejamento, a de finanças e a de administração geral.",
+                    "A autonomia gerencial, orçamentária e financeira dos órgãos e das entidades da administração direta e indireta poderá ser ampliada mediante instrumento específico que tenha por objetivo a fixação de metas de desempenho para o órgão ou entidade.",
+                    "Os cargos, funções e empregos públicos são acessíveis aos brasileiros que preencham os requisitos estabelecidos em lei, assim como aos estrangeiros, na forma da lei."
+                ],
+                correct: 0,
+                explanation: "A alternativa incorreta é a primeira, pois a finalidade também deve ser explicitada no ato administrativo, conforme princípio da finalidade.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 24,
+                question: "Assinale a alternativa CORRETA:",
+                options: [
+                    "O Legislativo Estadual é responsável pelo estabelecimento das normas que regem as atividades exercidas por voluntários, profissionais e instituições civis na área de atuação do CBMMG.",
+                    "Apenas os Bombeiros Militares da reserva do Estado de Minas Gerais não necessitam realizar cursos de capacitação nos centros de formação credenciados para exercerem atividades da área de competência do CBMMG.",
+                    "Na impossibilidade técnica para cumprimento de prazos no saneamento de irregularidades, o responsável técnico, proprietário ou representante legal das instituições civis e centros de formação e os voluntários ou profissionais credenciados para atuarem em área de competência do CBMMG no Estado de Minas Gerais poderão solicitar e lhes ser concedido maior prazo.",
+                    "Voluntários que exerçam atividade da competência do CBMMG no Estado de Minas Gerais estão sujeitos a impedimento de participação em concursos públicos no âmbito do Estado, dentre outras sanções administrativas aplicáveis."
+                ],
+                correct: 2,
+                explanation: "A alternativa correta é a terceira, pois na impossibilidade técnica para cumprimento de prazos no saneamento de irregularidades, pode ser solicitado e concedido maior prazo.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            // CONHECIMENTOS PROFISSIONAIS (Questões 25-40)
+            {
+                id: 25,
+                question: "A figura a seguir representa uma das técnicas com esguicho que podem ser utilizadas no combate a incêndio urbano. Marque a alternativa que define CORRETAMENTE o nome da referida técnica:",
+                options: [
+                    "Jato mole.",
+                    "Pulso atomizado.",
+                    "Pulso longo de Alta Vazão (ZOTI).",
+                    "Pacote D'água."
+                ],
+                correct: 2,
+                explanation: "A técnica representada é o Pulso longo de Alta Vazão (ZOTI).",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 26,
+                question: "Considerando a Instrução Técnica nº 01 – 9ª edição – Procedimentos administrativos, marque a alternativa CORRETA:",
+                options: [
+                    "Apenas as alternativas I, II e III são verdadeiras.",
+                    "Apenas as alternativas II, III e IV são verdadeiras.",
+                    "Apenas as alternativas I, III e IV são verdadeiras.",
+                    "Todas as alternativas são verdadeiras."
+                ],
+                correct: 2,
+                explanation: "Apenas as alternativas I, III e IV são verdadeiras. A alternativa II está incorreta pois o protocolo de Projeto Técnico para Evento Temporário (PET) para eventos realizados em edificações ou espaços destinados ao uso coletivo liberados para o mesmo fim não pode ser permitido quando as adaptações prejudicarem a eficiência das medidas de segurança ou quando a população prevista para o evento for superior àquela indicada no AVCB.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 27,
+                question: "O Procedimento Operacional Padrão – POP 21, orienta as ações necessárias às atividades de fomento à criação e operacionalização das Coordenadorias Municipais de Proteção e Defesa Civil – COMPDECs. São diretrizes a serem seguidas pelas Unidades do CBMMG cujos municípios dentro de sua articulação não possuam COMPDECS, EXCETO:",
+                options: [
+                    "Disponibilizar o apoio do CBMMG para a implantação da COMPDEC e para capacitações.",
+                    "Reunir-se com as autoridades municipais, diligenciar para envolver outras autoridades estaduais e federais, bem como lideranças e empresariado local.",
+                    "Autuar o gestor municipal com advertência e multa em obediência ao previsto na Lei Federal 12.608/2012.",
+                    "Orientar o Prefeito e o Presidente da Câmara de Vereadores sobre a importância da criação da COMPDEC."
+                ],
+                correct: 2,
+                explanation: "A alternativa que não é uma diretriz do POP 21 é a terceira, pois autuar o gestor municipal com advertência e multa não é uma ação prevista no procedimento operacional padrão.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 28,
+                question: "Sobre as fases de um incêndio em ambiente confinado de acordo com o MABOM - CIURB, relacione a Segunda Coluna de acordo com as respectivas correspondências da Primeira Coluna.",
+                options: [
+                    "III, I, IV, II.",
+                    "IV, III, I, III.",
+                    "II, I, III, IV.",
+                    "II, IV, I, III."
+                ],
+                correct: 3,
+                explanation: "A sequência correta é II, IV, I, III: (II) Crescimento, (IV) Decaimento, (I) Inicial, (III) Totalmente desenvolvido.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 29,
+                question: "A escala de Coma de Glasgow (ECG) é uma escala neurológica com objetivo de registrar o nível de consciência e responsividade de um paciente. São parâmetros que compõe a ECG, EXCETO:",
+                options: [
+                    "Abertura ocular.",
+                    "Resposta verbal.",
+                    "Pressão arterial.",
+                    "Resposta motora."
+                ],
+                correct: 2,
+                explanation: "A pressão arterial não é um parâmetro da Escala de Coma de Glasgow. Os parâmetros são: abertura ocular, resposta verbal e resposta motora.",
+                difficulty: "easy",
+                category: "Profissional"
+            },
+            {
+                id: 30,
+                question: "A Instrução Técnica nº 08 – 2ª edição – versa sobre as saídas de emergência em edificações. Abordando a instrução supracitada, responda 'V' para as frases VERDADEIRAS e 'F' para as frases FALSAS e em seguida ASSINALE A SEQUÊNCIA CORRESPONDENTE:",
+                options: [
+                    "V, F, F, V.",
+                    "V, V, F, V.",
+                    "V, V, V, F.",
+                    "F, V, F, V."
+                ],
+                correct: 1,
+                explanation: "A sequência correta é V, V, F, V. A primeira, segunda e quarta afirmativas são verdadeiras, enquanto a terceira é falsa.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 31,
+                question: "São condições para que o CBMMG efetue a poda ou corte de árvores, EXCETO:",
+                options: [
+                    "Quando se enquadrar em risco iminente de queda, concomitante à ameaça à vida de pessoas e/ou patrimônio.",
+                    "Em caso de árvores caídas que impeçam a mobilidade urbana.",
+                    "Em caso da necessidade de podas ornamentais com a devida autorização ambiental.",
+                    "Em apoio a órgãos federais, estaduais e municipais com a devida autorização ambiental."
+                ],
+                correct: 2,
+                explanation: "A alternativa que não é condição para que o CBMMG efetue a poda ou corte de árvores é a terceira, pois podas ornamentais não são de competência do CBMMG.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 32,
+                question: "A comunicação por apito na busca e salvamento de pessoa perdida pode ser utilizada pelas equipes de busca durante os trabalhos. De acordo com o POP S 04.007, a execução de três silvos curtos SIGNIFICA:",
+                options: [
+                    "Atenção.",
+                    "Algo fora do normal, algum acidentado, vítima encontrada, alguma situação de risco.",
+                    "Continue a operação.",
+                    "Nenhuma das alternativas anteriores."
+                ],
+                correct: 1,
+                explanation: "Três silvos curtos significam 'Algo fora do normal, algum acidentado, vítima encontrada, alguma situação de risco' de acordo com o POP S 04.007.",
+                difficulty: "easy",
+                category: "Profissional"
+            },
+            {
+                id: 33,
+                question: "Com base no Manual de Gerenciamento de Desastres - Sistema de Comando em Operações. Livro Texto do Projeto Gerenciamento de Desastres - Sistema de Comando em Operações / Marcos de Oliveira, marque a alternativa ERRADA:",
+                options: [
+                    "O Sistema de Comando de Operações (SCO) pode ser conceituado como uma ferramenta gerencial, de concepção sistêmica e contingencial, que padroniza as ações de resposta em situações críticas de qualquer natureza ou tamanho.",
+                    "Quanto à intensidade, os desastres podem ser divididos em desastres de nível I (com danos facilmente suportáveis e superáveis pelas próprias comunidades afetadas), desastres de nível II (com danos e prejuízos que podem ser superados com recursos da própria comunidade, desde que haja uma mobilização), desastres de nível III (se caracterizam por serem de grande porte e exigirem ações complementares e auxílio externo para a superação dos danos e prejuízos) e desastres de nível IV (os danos e prejuízos não são superáveis e suportáveis pelas comunidades sem ajuda de fora da área afetada, mesmo quando as comunidades são bem informadas, preparadas, participativas e facilmente mobilizáveis).",
+                    "Quanto à origem, os desastres podem ser divididos em desastres súbitos ou de evolução aguda, que se caracterizam pela rapidez com que evoluem e, normalmente, pela violência dos fenômenos que os causam; desastres de evolução crônica, gradual (lenta), que se caracterizam por evoluírem progressivamente ao longo do tempo, como no caso das secas e estiagens; desastres por somação de efeitos parciais, que se caracterizam pela acumulação de eventos semelhantes, cujos danos, quando somados ao término de um determinado período, representam também um desastre muito importante, como no caso dos acidentes de trânsito.",
+                    "A atuação da defesa civil tem como principal objetivo a redução de desastres, o que compreende quatro ações distintas, a saber: ações de prevenção, ações de preparação para emergências, ações de resposta aos desastres e ações de reconstrução que ocorrem de forma multissetorial e nos três níveis de governo, exigindo ampla participação comunitária."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois a classificação de desastres por origem não inclui a categoria 'desastres por somação de efeitos parciais' conforme descrito.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 34,
+                question: "Considerando a IT 17 - Sistema de Hidrantes e Mangotinhos, os pontos de tomada de água devem ser posicionados:",
+                options: [
+                    "Apenas as alternativas I e II são verdadeiras.",
+                    "Apenas as alternativas II, III e IV são verdadeiras.",
+                    "Nenhuma das alternativas é verdadeira.",
+                    "Todas as alternativas são verdadeiras."
+                ],
+                correct: 3,
+                explanation: "Todas as alternativas são verdadeiras, pois todas representam posicionamentos corretos para pontos de tomada de água de acordo com a IT 17.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 35,
+                question: "O processo de afogamento envolve três fases distintas que podem ser interrompidas por meio da intervenção em sua ocorrência. São fases de afogamento, EXCETO:",
+                options: [
+                    "Angústia.",
+                    "Pânico.",
+                    "Desistência.",
+                    "Submersão."
+                ],
+                correct: 2,
+                explanation: "A fase que não faz parte do processo de afogamento é a 'Desistência'. As fases são: Angústia, Pânico e Submersão.",
+                difficulty: "easy",
+                category: "Profissional"
+            },
+            {
+                id: 36,
+                question: "A classificação de níveis de risco das edificações é definida pela Instrução Técnica 01. Uma escola de ensino fundamental localizada no térreo de uma edificação e com lotação de 220 alunos no período matutino, SERÁ CLASSIFICADA em:",
+                options: [
+                    "Nível de Risco I.",
+                    "Nível de Risco II.",
+                    "Nível de Risco III.",
+                    "Nível de Risco IV."
+                ],
+                correct: 2,
+                explanation: "Uma escola de ensino fundamental com lotação de 220 alunos será classificada como Nível de Risco III de acordo com a IT 01.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 37,
+                question: "O memorando nº 3.142/2017, publicado na Separata do BGBM nº 19 de 11mai2017, dispõe sobre o resgate recuperação de vítimas em águas poluídas. Com base na legislação supracitada, todas as definições são verdadeiras, EXCETO:",
+                options: [
+                    "Considera-se riscos físicos a presença de objetos que podem causar lesões como galhas e rochas. Além disso, águas com temperaturas muito baixas podem causar hipotermia se os militares forem expostos as baixas temperaturas por tempos prolongados. A própria correnteza da água e os efeitos da variação de pressão podem ser um grande risco para os envolvidos em operações desta natureza.",
+                    "A falta de equipamento adequado para contato com águas poluídas, como a roupa seca para mergulho e roupão sanitário pode ser considerado um fator de risco. É considerado como fator de risco, bem como a ausência de militares especializados em MASA e salvamento em corredeiras, enchentes e inundações durante operações envolvendo águas poluídas, podendo ser classificadas como riscos relacionados à logística e técnica",
+                    "As Condutas a serem adotadas em caso de processo de afogamento presenciado por BM ou testemunha ocular idônea com tempo de submersão em águas poluídas de até 30 minutos, serão considerados recuperação de cadáver. As buscas deverão ocorrer somente com equipamentos apropriados (roupa seca) com total isolamento da água poluída. Não havendo equipamento de proteção apropriado para atuação em águas poluídas realizar somente buscas de superfície com embarcação ou outros materiais.",
+                    "Os afogamentos são uma causa comum de mortes acidentais, especialmente em crianças. Respostas rápidas de pessoas que estejam próximas ao local e das equipes de emergência podem fazer a diferença entre a vida e morte. A submersão ocorre quando o rosto está debaixo d'água ou coberto de água. Asfixia e parada cardíaca ocorrem dentro de um minuto de submersão. Imersão, pelo contrário, é quando a cabeça permanece acima da água, na maioria dos casos através do apoio de um colete salva-vidas."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois as condutas a serem adotadas em caso de processo de afogamento com tempo de submersão em águas poluídas de até 30 minutos não são necessariamente consideradas recuperação de cadáver, podendo ainda haver possibilidade de reanimação.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 38,
+                question: "As antecâmaras, para ingressos nas escadas enclausuradas, devem ter paredes resistentes ao fogo por no mínimo:",
+                options: [
+                    "120 minutos.",
+                    "90 minutos.",
+                    "60 minutos.",
+                    "30 minutos."
+                ],
+                correct: 0,
+                explanation: "As antecâmaras para ingressos nas escadas enclausuradas devem ter paredes resistentes ao fogo por no mínimo 120 minutos.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 39,
+                question: "Em ocorrências envolvendo tentativa de suicídio, o bombeiro militar (abordador) utiliza-se da habilidade comunicativa com objetivo de conhecer os pensamentos do tentante, compreendê-lo de forma empática e potencializar sua desistência do ato autodestrutivo. São comportamentos IMPRODUTIVOS para um abordador, EXCETO:",
+                options: [
+                    "Completar frases para o tentante.",
+                    "Apoiar o tentante a encontrar soluções próprias.",
+                    "Chamar por apelidos ou nomes depreciativos.",
+                    "Mentir, prometer, seduzir."
+                ],
+                correct: 1,
+                explanation: "O comportamento produtivo para um abordador é 'Apoiar o tentante a encontrar soluções próprias'. Os demais são comportamentos improdutivos.",
+                difficulty: "easy",
+                category: "Profissional"
+            },
+            {
+                id: 40,
+                question: "A Instrução Técnica 39 - 3ª Edição - Blocos de Carnaval, estabelece as considerações mínimas de segurança para concentrações, deslocamentos e dispersões dos Blocos Carnavalescos em vias públicas. Sobre o tema assinale a alternativa ERRADA, que se encontra em desacordo com a legislação:",
+                options: [
+                    "O organizador, no ato da comunicação do bloco de carnaval ao CBMMG, deverá informar que o veículo a ser utilizado como trio elétrico ou similar está licenciado junto aos órgãos de trânsito para os fins a que se pretende sua utilização, a comunicação do bloco de carnaval ao CBMMG não desobriga o organizador do bloco do cadastro e eventuais autorizações junto à prefeitura e órgão de trânsito local, conforme legislação própria.",
+                    "Os Trios Elétricos e similares constituem, a rigor, veículos de transporte regulados pelo Código de Trânsito Brasileiro, sob fiscalização dos órgãos de trânsito, cabendo ao organizador do bloco e ao proprietário de trios elétricos e similares a responsabilidade por providenciar a liberação destes junto aos órgãos de trânsito.",
+                    "A Unidade/Fração responsável pela área de ocorrência dos blocos carnavalescos poderá autorizar a utilização de tais áreas, desde que garantidas a adoção de medidas que minimizem os riscos de acidentes ou a interferência em direitos constitucionais das demais pessoas.",
+                    "Para a minimização de risco de quedas de alturas, deve ser adotada no mínimo proteção física com afastamento de 01 (um) metro da margem e altura mínima de 0,55 m. Podem ainda ser utilizadas medidas como controle de público, avaliação climática, garantia de faixa para deslocamento de veículos de emergência, dentre outras."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois a proteção física para minimização de risco de quedas de alturas deve ter altura mínima maior que 0,55 m.",
+                difficulty: "medium",
+                category: "Profissional"
+            }
+        ];
+
+        // =============================================
+        // VARIÁVEIS GLOBAIS DO QUIZ
+        // =============================================
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(allQuestions.length).fill(null);
+        let correctAnswers = Array(allQuestions.length).fill(false);
+        let quizStarted = false;
+
+        // =============================================
+        // ELEMENTOS DO DOM
+        // =============================================
+        const startBtn = document.getElementById('start-btn');
+        const quizSection = document.getElementById('quiz-section');
+        const contentSection = document.querySelector('.content-section');
+        const quizContainer = document.getElementById('quiz-container');
+        const progressText = document.getElementById('progress-text');
+        const quizProgress = document.getElementById('quiz-progress');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const resultsSection = document.getElementById('results');
+        const scoreElement = document.getElementById('score');
+        const correctLegislacaoElement = document.getElementById('correct-legislacao');
+        const correctJuridicoElement = document.getElementById('correct-juridico');
+        const correctProfissionalElement = document.getElementById('correct-profissional');
+        const messageElement = document.getElementById('message');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // =============================================
+        // INICIALIZAÇÃO DO QUIZ
+        // =============================================
+        startBtn.addEventListener('click', startQuiz);
+        prevBtn.addEventListener('click', showPreviousQuestion);
+        nextBtn.addEventListener('click', showNextQuestion);
+        restartBtn.addEventListener('click', restartQuiz);
+
+        // =============================================
+        // FUNÇÕES DO QUIZ
+        // =============================================
+        function startQuiz() {
+            quizStarted = true;
+            contentSection.style.display = 'none';
+            quizSection.style.display = 'block';
+            showQuestion(currentQuestionIndex);
+            updateProgress();
+        }
+
+        function showQuestion(index) {
+            const question = allQuestions[index];
+            
+            // Atualizar texto de progresso
+            progressText.textContent = `Pergunta ${index + 1} de ${allQuestions.length}`;
+            
+            // Atualizar barra de progresso
+            const progressPercentage = ((index + 1) / allQuestions.length) * 100;
+            quizProgress.style.width = `${progressPercentage}%`;
+            
+            // Criar HTML da pergunta
+            let questionHTML = `
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-difficulty difficulty-${question.difficulty}">
+                            ${question.category} - ${question.difficulty === 'easy' ? 'Fácil' : question.difficulty === 'medium' ? 'Médio' : 'Difícil'}
+                        </span>
+                        <div class="question-text">${question.id}. ${question.question}</div>
+                    </div>
+                    <div class="options">
+            `;
+            
+            // Adicionar opções de resposta
+            question.options.forEach((option, optionIndex) => {
+                let optionClass = 'option';
+                let feedbackIcon = '';
+                
+                // Verificar se esta opção foi selecionada
+                if (userAnswers[index] === optionIndex) {
+                    optionClass += ' selected';
+                    
+                    // Verificar se a resposta está correta
+                    if (optionIndex === question.correct) {
+                        optionClass += ' correct';
+                        feedbackIcon = '<i class="fas fa-check feedback-icon"></i>';
+                    } else {
+                        optionClass += ' incorrect';
+                        feedbackIcon = '<i class="fas fa-times feedback-icon"></i>';
+                    }
+                }
+                
+                // Se a pergunta foi respondida, destacar a resposta correta
+                if (userAnswers[index] !== null && optionIndex === question.correct) {
+                    optionClass += ' correct-answer';
+                    if (userAnswers[index] !== optionIndex) {
+                        feedbackIcon = '<i class="fas fa-check feedback-icon"></i>';
+                    }
+                }
+                
+                questionHTML += `
+                    <div class="${optionClass}" data-option="${optionIndex}">
+                        <span class="option-letter">${String.fromCharCode(65 + optionIndex)}</span>
+                        ${option}
+                        ${feedbackIcon}
+                    </div>
+                `;
+            });
+            
+            questionHTML += `</div></div>`;
+            
+            // Inserir HTML no container
+            quizContainer.innerHTML = questionHTML;
+            
+            // Adicionar event listeners às opções (apenas se a pergunta ainda não foi respondida)
+            if (userAnswers[index] === null) {
+                document.querySelectorAll('.option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectOption(this, index);
+                    });
+                });
+            }
+            
+            // Atualizar estado dos botões de navegação
+            updateNavigationButtons();
+        }
+
+        function selectOption(optionElement, questionIndex) {
+            // Se já respondeu esta pergunta, não permitir alteração
+            if (userAnswers[questionIndex] !== null) return;
+            
+            const selectedOption = parseInt(optionElement.getAttribute('data-option'));
+            userAnswers[questionIndex] = selectedOption;
+            
+            // Verificar se a resposta está correta
+            const isCorrect = selectedOption === allQuestions[questionIndex].correct;
+            correctAnswers[questionIndex] = isCorrect;
+            
+            // Atualizar a exibição da pergunta
+            showQuestion(questionIndex);
+            
+            // Se for a última pergunta, mostrar botão de finalizar
+            if (questionIndex === allQuestions.length - 1) {
+                nextBtn.textContent = 'Finalizar';
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
+            }
+        }
+
+        function showPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        }
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < allQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                // Última pergunta - finalizar quiz
+                finishQuiz();
+            }
+        }
+
+        function updateNavigationButtons() {
+            // Botão Anterior
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            // Botão Próxima
+            if (currentQuestionIndex === allQuestions.length - 1) {
+                nextBtn.textContent = 'Finalizar';
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
+            } else {
+                nextBtn.textContent = 'Próxima';
+                nextBtn.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        function updateProgress() {
+            const answeredCount = userAnswers.filter(answer => answer !== null).length;
+            progressText.textContent = `Pergunta ${currentQuestionIndex + 1} de ${allQuestions.length}`;
+            
+            const progressPercentage = ((currentQuestionIndex + 1) / allQuestions.length) * 100;
+            quizProgress.style.width = `${progressPercentage}%`;
+        }
+
+        function finishQuiz() {
+            // Calcular pontuação
+            const correctCount = correctAnswers.filter(correct => correct).length;
+            const totalQuestions = allQuestions.length;
+            const scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+            
+            // Calcular desempenho por categoria
+            const legisQuestions = allQuestions.filter(q => q.category === 'Legislação');
+            const juridQuestions = allQuestions.filter(q => q.category === 'Jurídico');
+            const profQuestions = allQuestions.filter(q => q.category === 'Profissional');
+            
+            const correctLegis = legisQuestions.filter((q, i) => {
+                const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
+                return correctAnswers[globalIndex];
+            }).length;
+            
+            const correctJurid = juridQuestions.filter((q, i) => {
+                const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
+                return correctAnswers[globalIndex];
+            }).length;
+            
+            const correctProf = profQuestions.filter((q, i) => {
+                const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
+                return correctAnswers[globalIndex];
+            }).length;
+            
+            // Exibir resultados
+            scoreElement.textContent = `${correctCount}/${totalQuestions}`;
+            correctLegislacaoElement.textContent = `${correctLegis}/${legisQuestions.length}`;
+            correctJuridicoElement.textContent = `${correctJurid}/${juridQuestions.length}`;
+            correctProfissionalElement.textContent = `${correctProf}/${profQuestions.length}`;
+            
+            // Mensagem personalizada baseada no desempenho
+            let message = '';
+            if (scorePercentage >= 90) {
+                message = 'Excelente! Você demonstrou domínio completo do conteúdo do EAP. Continue assim!';
+            } else if (scorePercentage >= 70) {
+                message = 'Bom trabalho! Você tem um bom conhecimento, mas ainda pode melhorar em algumas áreas.';
+            } else if (scorePercentage >= 50) {
+                message = 'Resultado regular. Recomenda-se revisar os conteúdos com mais atenção antes do exame.';
+            } else {
+                message = 'É necessário estudar mais. Recomenda-se dedicar mais tempo à preparação para o EAP.';
+            }
+            
+            messageElement.textContent = message;
+            
+            // Mostrar seção de resultados e ocultar quiz
+            quizSection.style.display = 'none';
+            resultsSection.style.display = 'block';
+        }
+
+        function restartQuiz() {
+            // Reiniciar variáveis
+            currentQuestionIndex = 0;
+            userAnswers = Array(allQuestions.length).fill(null);
+            correctAnswers = Array(allQuestions.length).fill(false);
+            
+            // Mostrar conteúdo inicial
+            resultsSection.style.display = 'none';
+            contentSection.style.display = 'flex';
+            
+            // Restaurar botão de iniciar
+            startBtn.textContent = 'Iniciar Quiz';
+            startBtn.innerHTML = '<i class="fas fa-play"></i> Iniciar Quiz';
+        }
+    </script>
+</body>
+</html>
