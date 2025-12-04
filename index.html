@@ -414,12 +414,14 @@
             margin-bottom: 10px;
             padding: 5px 0;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .column-item-number {
-            display: inline-block;
-            width: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 25px;
             height: 25px;
             background: var(--light);
             border-radius: 50%;
@@ -1012,7 +1014,18 @@
             },
             {
                 id: 8,
-                question: "O Bombeiro Militar mesmo fora do exercício da função pública, ao se utilizar das mídias e redes sociais deve sempre buscar a preservação da imagem institucional de modo a não permitir que a expressão de suas convicções pessoais ou exposição de sua vida privada reflita negativamente na imagem do CBMMG. Ao fazer uso das mídias e redes sociais, é vedado ao militar:",
+                type: "matching",
+                question: `O Bombeiro Militar mesmo fora do exercício da função pública, ao se utilizar das mídias e redes sociais deve sempre buscar a preservação da imagem institucional de modo a não permitir que a expressão de suas convicções pessoais ou exposição de sua vida privada reflita negativamente na imagem do CBMMG. Ao fazer uso das mídias e redes sociais, é vedado ao militar:`,
+                columns: {
+                    primeira: [
+                        "I - Depreciar, proferir ofensas ou calúnias contra qualquer pessoa através de postagens (publicações) que por seu conteúdo exponha a imagem do CBMMG ou de seus integrantes a situações constrangedoras ou vexatórias.",
+                        "II - Promover divulgações de cunho particular em redes sociais vinculando sua função pública ou explorando a imagem do CBMMG para obter autopromoção ou com o fim de facilitar e encaminhar negócios particulares ou de terceiros.",
+                        "III - Publicar sem autorização assuntos internos ou de natureza estratégica que tenha conhecimento em razão do exercício de sua função pública.",
+                        "IV - Promover à exposição da imagem do CBMMG, suas logomarcas, viaturas, insígnias, distintivos ou fardamento relacionando-os com publicações feitas em mídias ou redes sociais que tenham conteúdo indecoroso, obsceno, erótico, sensual, ou que denotem prática de discriminação, preconceito de raça, cor, etnia, religião, procedência nacional ou que contrariem princípios morais e éticos militares.",
+                        "V - Divulgar ou veicular imagens de ocorrências atendidas pelo CBMMG (sejam elas do teatro de operações ou de seus integrantes) que não tenham sido previamente divulgadas pelos meios oficiais do CBMMG."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "Apenas as alternativas I e II são verdadeiras.",
                     "Apenas as alternativas II, II e IV são verdadeiras.",
@@ -1026,7 +1039,17 @@
             },
             {
                 id: 9,
-                question: "Considerando a Emenda à Constituição nº 57/2003, observe as afirmações a seguir e marque a alternativa CORRETA.",
+                type: "matching",
+                question: `Considerando a Emenda à Constituição nº 57/2003, observe as afirmações a seguir e marque a alternativa CORRETA.`,
+                columns: {
+                    primeira: [
+                        "I - É assegurado ao servidor público civil e ao militar, quando de sua aposentadoria, o direito de converter em espécie as férias-prêmio adquiridas até 29 de fevereiro de 2004 e não gozadas.",
+                        "II - Não terá direito o servidor público civil e ao militar do Estado de Minas Gerais em exercício na data de publicação desta emenda à Constituição que for nomeado para outro cargo no Estado em razão de aprovação em concurso público, à percepção dos adicionais por tempo de serviço e das férias-prêmio adquiridos e a adquirir.",
+                        "III - É garantida a contagem em dobro das férias-prêmio não gozadas para fins de percepção de adicionais por tempo de serviço, quando da aposentadoria, ao servidor que tenha cumprido os requisitos para a obtenção de tal benefício.",
+                        "IV - Ao militar que tenham ingressado no serviço público do Estado de Minas Gerais até a data da publicação desta emenda à Constituição, é assegurada percepção de adicional de 10% (dez por cento) sobre o seu vencimento básico, a cada período de cinco anos de efetivo exercício, o qual a este se incorpora para fins de aposentadoria."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "Apenas as alternativas II e III são verdadeiras.",
                     "Apenas as alternativas II, III e IV são verdadeiras.",
@@ -1054,7 +1077,17 @@
             },
             {
                 id: 11,
-                question: "Sobre os procedimentos relativos às substituições temporárias no CBMMG, análise as afirmativas a seguir, atribuindo (V) para afirmativa verdadeira e (F) para afirmativa falsa, em seguida marque a alternativa correspondente à resposta CORRETA:",
+                type: "matching",
+                question: `Sobre os procedimentos relativos às substituições temporárias no CBMMG, análise as afirmativas a seguir, atribuindo (V) para afirmativa verdadeira e (F) para afirmativa falsa, em seguida marque a alternativa correspondente à resposta CORRETA:`,
+                columns: {
+                    primeira: [
+                        "( ) Deverá ser criado um processo do SEI para cada militar em substituição temporária na unidade, relacionando todos os cargos exercidos pelo militar naquela unidade, ficando arquivado preferencialmente em bloco interno do SEI.",
+                        "( ) A Folha Especial por Substituição Temporária – FEST, deve ser utilizada excepcionalmente para sanar a falta de pagamento ou o recebimento indevido de gratificação por substituição temporária.",
+                        "( ) O militar, que se encontrar no exercício de função atribuída a cargo superior ao seu, é responsável pela conferência dos valores lançados em seus demonstrativos de pagamento, e em caso de inconsistência, este militar deverá providenciar a montagem da FEST para análise da Diretoria de Recursos Humanos.",
+                        "( ) Para o cálculo dos dias de exercício de função de substituição temporária, conta-se, para fins de gratificação, a data de início da declaração de entrada em exercício, sendo os mesmos considerados com 25 (vinte e cinco) dias úteis."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "V; F; F; V.",
                     "V; F; F; F.",
@@ -1098,7 +1131,17 @@
             },
             {
                 id: 14,
-                question: "Assinale a alternativa CORRETA:",
+                type: "matching",
+                question: `Assinale a alternativa CORRETA:`,
+                columns: {
+                    primeira: [
+                        "I - No ordenamento jurídico brasileiro é impossível que, independente das circunstâncias, uma pessoa condenada por Homicídio Culposo não receba uma pena de detenção de ao menos 1 (um) ano.",
+                        "II - Uma pessoa que, através de suas ações, ocasiona a morte de outra, mesmo sem intenção, pode ser condenado a mais de 10 anos de reclusão.",
+                        "III - Se uma pessoa comete um Homicídio, transtornado emocionalmente em virtude de uma provocação da vítima que, não obstante, foi considerada justa pelo juiz, ainda assim poderá se beneficiar da diminuição da pena de um sexto a um terço.",
+                        "IV - A qualificação de um homicídio como FEMINICÍDIO não influi na pena que pode ser aplicada, apenas no regime desta."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "Todas as alternativas estão corretas.",
                     "Todas as alternativas estão incorretas.",
@@ -1182,7 +1225,17 @@
             },
             {
                 id: 20,
-                question: "Considerando a Declaração Universal dos Direitos Humanos, e sua aplicação no ordenamento jurídico brasileiro, assinale a alternativa CORRETA:",
+                type: "matching",
+                question: `Considerando a Declaração Universal dos Direitos Humanos, e sua aplicação no ordenamento jurídico brasileiro, assinale a alternativa CORRETA:`,
+                columns: {
+                    primeira: [
+                        "I - A presunção de inocência nas acusações de atos delituosos é um direito universal dos seres humanos, mesmo nos casos de flagrante delito.",
+                        "II - O direito a asilo em virtude de perseguição não se aplica quando a pessoa está sendo perseguida em virtude de processo criminal regular no seu país de origem.",
+                        "III - O direito à liberdade religiosa não é absoluto, pois no Brasil são proibidas por lei religiões ou seitas satanistas.",
+                        "IV - A proteção ao desemprego, embora seja uma prática comum no âmbito governamental, não é prevista como um direito dos seres humanos."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "Apenas as alternativas I e II estão corretas.",
                     "Todas as alternativas estão incorretas.",
@@ -1267,7 +1320,17 @@
             },
             {
                 id: 26,
-                question: "Considerando a Instrução Técnica nº 01 – 9ª edição – Procedimentos administrativos, marque a alternativa CORRETA:",
+                type: "matching",
+                question: `Considerando a Instrução Técnica nº 01 – 9ª edição – Procedimentos administrativos, marque a alternativa CORRETA:`,
+                columns: {
+                    primeira: [
+                        "I - A definição da forma de licenciamento considera o nível de risco da edificação, espaço destinado ao uso coletivo ou da empresa, quanto à segurança contra incêndio e pânico, mediante informações fornecidas ao CBMMG, sendo emitido licenciamento provisório ou AVCB, conforme o caso.",
+                        "II - Poderá ser permitido o protocolo de Projeto Técnico para Evento Temporário (PET) para eventos realizados em edificações ou espaços destinados ao uso coletivo liberados para o mesmo fim, devendo possuir apenas o AVCB, inclusive quando as adaptações prejudicarem a eficiência das medidas de segurança ou quando a população prevista para o evento for superior àquela indicada no AVCB.",
+                        "III - Os níveis de risco serão classificados, conforme critérios e condicionantes previstos na desta IT nº 01, da seguinte forma: nível de risco I - para os casos de risco leve, irrelevante ou inexistente; nível de risco II - para os casos de risco moderado; nível de risco III - para os casos de risco alto.",
+                        "IV - O licenciamento junto ao SSCIP é o procedimento administrativo para se obter o Certificado de Funcionamento Provisório, por meio de procedimento declaratório (licenciamento declaratório) e o Auto de Vistoria do Corpo de Bombeiros (AVCB), por meio do Processo de Segurança Contra Incêndio e Pânico (PSCIP)."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "Apenas as alternativas I, II e III são verdadeiras.",
                     "Apenas as alternativas II, III e IV são verdadeiras.",
@@ -1338,7 +1401,17 @@
             },
             {
                 id: 30,
-                question: "A Instrução Técnica nº 08 – 2ª edição – versa sobre as saídas de emergência em edificações. Abordando a instrução supracitada, responda 'V' para as frases VERDADEIRAS e 'F' para as frases FALSAS e em seguida ASSINALE A SEQUÊNCIA CORRESPONDENTE:",
+                type: "matching",
+                question: `A Instrução Técnica nº 08 – 2ª edição – versa sobre as saídas de emergência em edificações. Abordando a instrução supracitada, responda 'V' para as frases VERDADEIRAS e 'F' para as frases FALSAS e em seguida ASSINALE A SEQUÊNCIA CORRESPONDENTE:`,
+                columns: {
+                    primeira: [
+                        "( ) Em edificações térreas, pode ser considerada como saída, para efeito da distância máxima horizontal de caminhamento, qualquer abertura, sem grades fixas, sem peitoril, tanto interna como externamente, com altura mínima de 1,20 m, vão livre com área mínima de 1,20 m² e nenhuma dimensão inferior a 1,0 m.",
+                        "( ) As larguras mínimas das saídas de emergência, em qualquer caso, devem ser as seguintes; 1,10 m, correspondente a duas unidades de passagem de 55,0 cm, para as ocupações em geral; 1,65 m, correspondente a três unidades de passagem de 55,0 cm, para as escadas, os acessos e descarga; 2,20 m, correspondente a quatro unidades de passagem de 55,0 cm, para as rampas, acessos às rampas (corredores e passagens) e descarga das rampas, nas ocupações do grupo H, divisão H-3.",
+                        "( ) As portas que abrem para dentro de rotas de saída, em ângulo de 180º, em seu movimento de abrir, no sentido do trânsito de saída, não podem diminuir a largura efetiva destas em valor menor que a metade, sempre mantendo uma largura mínima livre de 1,65 m para as ocupações em geral e de 2,20 m para as divisões H-2 e H-3.",
+                        "( ) As portas das antecâmaras, escadas e outros, devem ser providas de dispositivos mecânicos e automáticos, de modo a permanecerem fechadas, porém, destrancadas, no sentido do fluxo de saída, sendo admissível que se mantenham abertas, desde que disponham de dispositivo de fechamento, quando necessário, conforme estabelecido na NBR11742."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "V, F, F, V.",
                     "V, V, F, V.",
@@ -1394,7 +1467,17 @@
             },
             {
                 id: 34,
-                question: "Considerando a IT 17 - Sistema de Hidrantes e Mangotinhos, os pontos de tomada de água devem ser posicionados:",
+                type: "matching",
+                question: `Considerando a IT 17 - Sistema de Hidrantes e Mangotinhos, os pontos de tomada de água devem ser posicionados:`,
+                columns: {
+                    primeira: [
+                        "I - Nas proximidades das portas externas, escadas e/ou de um dos acessos principais da edificação a ser protegido, a não mais de 10,0 m.",
+                        "II - Em posições centrais nas áreas protegidas, devendo atender ao item anterior obrigatoriamente.",
+                        "III - De 1,0 a 1,5 m do piso.",
+                        "IV - Fora das escadas ou antecâmaras de fumaça."
+                    ],
+                    segunda: []
+                },
                 options: [
                     "Apenas as alternativas I e II são verdadeiras.",
                     "Apenas as alternativas II, III e IV são verdadeiras.",
@@ -1579,21 +1662,30 @@
                 
                 questionHTML += `
                             </div>
-                            <div class="column">
-                                <div class="column-title">Segunda Coluna</div>
                 `;
                 
-                question.columns.segunda.forEach((item, i) => {
+                // Adicionar segunda coluna apenas se houver conteúdo
+                if (question.columns.segunda && question.columns.segunda.length > 0) {
                     questionHTML += `
-                        <div class="column-item">
-                            <span class="column-item-number">${i + 1}</span>
-                            ${item}
-                        </div>
+                            <div class="column">
+                                <div class="column-title">Segunda Coluna</div>
                     `;
-                });
+                    
+                    question.columns.segunda.forEach((item, i) => {
+                        questionHTML += `
+                            <div class="column-item">
+                                <span class="column-item-number">${i + 1}</span>
+                                ${item}
+                            </div>
+                        `;
+                    });
+                    
+                    questionHTML += `
+                            </div>
+                    `;
+                }
                 
                 questionHTML += `
-                            </div>
                         </div>
                     </div>
                 `;
