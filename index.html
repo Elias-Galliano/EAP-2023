@@ -372,10 +372,69 @@
             line-height: 1.4;
         }
 
+        .matching-question {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .columns-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (min-width: 768px) {
+            .columns-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .column {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .column-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .column-item {
+            margin-bottom: 10px;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .column-item-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: var(--light);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
         .options {
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
+            margin-top: 20px;
         }
 
         .option {
@@ -633,6 +692,10 @@
                 font-size: 1.1rem;
             }
             
+            .matching-question {
+                padding: 10px;
+            }
+            
             .option {
                 padding: 14px 12px;
             }
@@ -873,7 +936,26 @@
             },
             {
                 id: 4,
-                question: "Considerando a Resolução nº 949/2020, enumere a primeira coluna de acordo com as definições da segunda coluna e, em seguida, ASSINALE a alternativa que apresenta a sequência CORRETA, do Item I ao Item VI.",
+                type: "matching",
+                question: `Considerando a Resolução nº 949/2020, enumere a primeira coluna de acordo com as definições da segunda coluna e, em seguida, ASSINALE a alternativa que apresenta a sequência CORRETA, do Item I ao Item VI.`,
+                columns: {
+                    primeira: [
+                        "I - Município",
+                        "II - Origem",
+                        "III - Diligência do Serviço Público",
+                        "IV - Período de Embarque",
+                        "V - Local de Partida",
+                        "VI - Unidade"
+                    ],
+                    segunda: [
+                        "(1) é a parte do deslocamento, incluídas as esperas para baldeação, em que o militar aguarda para embarque no meio de transporte.",
+                        "(2) é a descrição individualizada das Unidades de Direção Geral, Direção Intermediária e de Execução, onde o militar tem exercício.",
+                        "(3) é a extensão territorial que compreende um ou mais distritos, dotada de autonomia administrativa.",
+                        "(4) é o documento que dê direito ao pagamento de indenizações, tais como ordem de serviço, Registro de Evento de Defesa Social (REDS), pedido de ajuda de custo, pedido de transporte, dentre outros.",
+                        "(5) é o deslocamento do bombeiro militar de sua sede, por motivo de serviço.",
+                        "(6) é o município/distrito de início da DSP e os municípios/distritos intermediários nos casos em que a DSP ocorrer em mais de um município/distrito."
+                    ]
+                },
                 options: [
                     "3; 4; 5; 1; 6 e 2.",
                     "6; 5;1; 2; 3 e 4.",
@@ -1146,7 +1228,7 @@
                 options: [
                     "O agente público motivará o ato administrativo que praticar, explicitando-lhe o fundamento legal e o fundamento fático. A finalidade não carece de ser explicitada no ato administrativo.",
                     "A atividade administrativa do Estado se organizará em sistemas, principalmente a de planejamento, a de finanças e a de administração geral.",
-                    "A autonomia geracional, orçamentária e financeira dos órgãos e das entidades da administração direta e indireta poderá ser ampliada mediante instrumento específico que tenha por objetivo a fixação de metas de desempenho para o órgão ou entidade.",
+                    "A autonomia gerencial, orçamentária e financeira dos órgãos e das entidades da administração direta e indireta poderá ser ampliada mediante instrumento específico que tenha por objetivo a fixação de metas de desempenho para o órgão ou entidade.",
                     "Os cargos, funções e empregos públicos são acessíveis aos brasileiros que preencham os requisitos estabelecidos em lei, assim como aos estrangeiros, na forma da lei."
                 ],
                 correct: 0,
@@ -1213,7 +1295,22 @@
             },
             {
                 id: 28,
+                type: "matching",
                 question: "Sobre as fases de um incêndio em ambiente confinado de acordo com o MABOM - CIURB, relacione a Segunda Coluna de acordo com as respectivas correspondências da Primeira Coluna.",
+                columns: {
+                    primeira: [
+                        "( ) No início dessa fase ainda há considerável quantidade de material combustível que, com a elevação da temperatura, liberará grande volume de gases inflamáveis. Nessa etapa, a concentração de comburente permite a rápida evolução do incêndio.",
+                        "( ) Após o consumo da disponibilidade dos materiais, ou escassez de comburente, o ambiente naturalmente entra em uma fase de liberação do excesso de energia e natural queda da temperatura. Nesse momento, há ainda forte presença da combustão incompleta e grande taxa de liberação de monóxido de carbono.",
+                        "( ) Nessa fase, o foco do princípio de incêndio ainda é pequeno. Não se verifica aumento significativo de temperatura, existe ainda todo o suprimento de combustível e comburente a serem consumidos no incêndio que está a se desenvolver. Pode ser identificada por meio de um pequeno foco isolado, com chama e uma escassa fumaça sendo produzida.",
+                        "( ) Nessa fase ocorre o consumo de todo o combustível disponível. O incêndio atinge seu ápice de produção de energia e a temperatura pode atingir picos de mais de 1000ºC. O comburente, nesse ponto, já não é suficiente para manter ativa toda a reação de combustão, a disponibilidade de combustível começa a diminuir, pois as chamas já consomem todo o material disponível."
+                    ],
+                    segunda: [
+                        "I. Inicial",
+                        "II. Crescimento",
+                        "III. Totalmente desenvolvido",
+                        "IV. Decaimento"
+                    ]
+                },
                 options: [
                     "III, I, IV, II.",
                     "IV, III, I, III.",
@@ -1460,8 +1557,49 @@
                         </span>
                         <div class="question-text">${question.id}. ${question.question}</div>
                     </div>
-                    <div class="options">
             `;
+            
+            // Adicionar colunas para questões de correspondência
+            if (question.type === "matching") {
+                questionHTML += `
+                    <div class="matching-question">
+                        <div class="columns-container">
+                            <div class="column">
+                                <div class="column-title">Primeira Coluna</div>
+                `;
+                
+                question.columns.primeira.forEach((item, i) => {
+                    questionHTML += `
+                        <div class="column-item">
+                            <span class="column-item-number">${String.fromCharCode(73 + i)}</span>
+                            ${item}
+                        </div>
+                    `;
+                });
+                
+                questionHTML += `
+                            </div>
+                            <div class="column">
+                                <div class="column-title">Segunda Coluna</div>
+                `;
+                
+                question.columns.segunda.forEach((item, i) => {
+                    questionHTML += `
+                        <div class="column-item">
+                            <span class="column-item-number">${i + 1}</span>
+                            ${item}
+                        </div>
+                    `;
+                });
+                
+                questionHTML += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            questionHTML += `<div class="options">`;
             
             // Adicionar opções de resposta
             question.options.forEach((option, optionIndex) => {
