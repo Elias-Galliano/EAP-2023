@@ -901,17 +901,18 @@
             },
             {
                 id: 6,
-                question: "As ações de Proteção e Defesa Civil desenvolvidas pelo CBMMG são divididas em dois grandes grupos, que agregam naturezas voltadas para a Gestão do Risco de Desastres e as ocorrências de Gestão do Desastre, portanto é CORRETO afirmar que:",
+                question: "ANULADA - As ações de Proteção e Defesa Civil desenvolvidas pelo CBMMG são divididas em dois grandes grupos, que agregam naturezas voltadas para a Gestão do Risco de Desastres e as ocorrências de Gestão do Desastre, portanto é CORRETO afirmar que:",
                 options: [
                     "Apenas as alternativas I e II são verdadeiras.",
                     "Apenas as alternativas II, II e IV são verdadeiras.",
                     "Nenhuma das alternativas são verdadeiras.",
                     "Todas as alternativas são verdadeiras."
                 ],
-                correct: 0,
-                explanation: "Apenas as afirmativas I e II são verdadeiras. A afirmativa III está incorreta pois as ações de resposta não são as últimas a serem realizadas, e a IV está incorreta pois as Ocorrências de Pronta Resposta não são realizadas para preservar vidas durante atendimentos de urgência e emergência.",
+                correct: -1,
+                explanation: "QUESTÃO ANULADA - Não será considerada para pontuação.",
                 difficulty: "medium",
-                category: "Legislação"
+                category: "Legislação",
+                anulada: true
             },
             {
                 id: 7,
@@ -985,17 +986,18 @@
             },
             {
                 id: 12,
-                question: "Em relação a concessão de diária nas Instituições Militares Estaduais - IME - de Minas Gerais, é CORRETO afirmar:",
+                question: "ANULADA - Em relação a concessão de diária nas Instituições Militares Estaduais - IME - de Minas Gerais, é CORRETO afirmar:",
                 options: [
                     "Apenas as alternativas I e II são verdadeiras.",
                     "Apenas as alternativas II, II e III são verdadeiras.",
                     "Nenhuma das alternativas são verdadeiras.",
                     "Todas as alternativas são verdadeiras."
                 ],
-                correct: 0,
-                explanation: "Apenas as afirmativas I e II são verdadeiras. A afirmativa III está incorreta pois a diária parcial é concedida no caso de deslocamento por período superior a seis horas e inferior a doze horas, hipótese em que será devida apenas a parcela de alimentação. A afirmativa IV está incorreta pois a parcela de diária relativa a pousada não é devida ao militar que dispuser de alojamento gratuito assegurado pelo Estado.",
+                correct: -1,
+                explanation: "QUESTÃO ANULADA - Não será considerada para pontuação.",
                 difficulty: "medium",
-                category: "Legislação"
+                category: "Legislação",
+                anulada: true
             },
             // CONHECIMENTOS JURÍDICOS (Questões 13-24)
             {
@@ -1144,7 +1146,7 @@
                 options: [
                     "O agente público motivará o ato administrativo que praticar, explicitando-lhe o fundamento legal e o fundamento fático. A finalidade não carece de ser explicitada no ato administrativo.",
                     "A atividade administrativa do Estado se organizará em sistemas, principalmente a de planejamento, a de finanças e a de administração geral.",
-                    "A autonomia gerencial, orçamentária e financeira dos órgãos e das entidades da administração direta e indireta poderá ser ampliada mediante instrumento específico que tenha por objetivo a fixação de metas de desempenho para o órgão ou entidade.",
+                    "A autonomia geracional, orçamentária e financeira dos órgãos e das entidades da administração direta e indireta poderá ser ampliada mediante instrumento específico que tenha por objetivo a fixação de metas de desempenho para o órgão ou entidade.",
                     "Os cargos, funções e empregos públicos são acessíveis aos brasileiros que preencham os requisitos estabelecidos em lei, assim como aos estrangeiros, na forma da lei."
                 ],
                 correct: 0,
@@ -1342,7 +1344,7 @@
                     "Considera-se riscos físicos a presença de objetos que podem causar lesões como galhas e rochas. Além disso, águas com temperaturas muito baixas podem causar hipotermia se os militares forem expostos as baixas temperaturas por tempos prolongados. A própria correnteza da água e os efeitos da variação de pressão podem ser um grande risco para os envolvidos em operações desta natureza.",
                     "A falta de equipamento adequado para contato com águas poluídas, como a roupa seca para mergulho e roupão sanitário pode ser considerado um fator de risco. É considerado como fator de risco, bem como a ausência de militares especializados em MASA e salvamento em corredeiras, enchentes e inundações durante operações envolvendo águas poluídas, podendo ser classificadas como riscos relacionados à logística e técnica",
                     "As Condutas a serem adotadas em caso de processo de afogamento presenciado por BM ou testemunha ocular idônea com tempo de submersão em águas poluídas de até 30 minutos, serão considerados recuperação de cadáver. As buscas deverão ocorrer somente com equipamentos apropriados (roupa seca) com total isolamento da água poluída. Não havendo equipamento de proteção apropriado para atuação em águas poluídas realizar somente buscas de superfície com embarcação ou outros materiais.",
-                    "Os afogamentos são uma causa comum de mortes acidentais, especialmente em crianças. Respostas rápidas de pessoas que estejam próximas ao local e das equipes de emergência podem fazer a diferença entre a vida e morte. A submersão ocorre quando o rosto está debaixo d'água ou coberto de água. Asfixia e parada cardíaca ocorrem dentro de um minuto de submersão. Imersão, pelo contrário, é quando a cabeça permanece acima da água, na maioria dos casos através do apoio de um colete salva-vidas."
+                    "Os afogamentos são uma causa comum de mortes acidentais, especialmente em crianças. Respostas rápidas de pessoas que estejam próximas ao local e das equipes de emergência podem fazer a diferênça entre a vida e morte. A submersão ocorre quando o rosto está debaixo d'água ou coberto de água. Asfixia e parada cardíaca ocorrem dentro de um minuto de submersão. Imersão, pelo contrário, é quando a cabeça permanece acima da água, na maioria dos casos através do apoio de um colete salva-vidas."
                 ],
                 correct: 2,
                 explanation: "A alternativa incorreta é a terceira, pois as condutas a serem adotadas em caso de processo de afogamento com tempo de submersão em águas poluídas de até 30 minutos não são necessariamente consideradas recuperação de cadáver, podendo ainda haver possibilidade de reanimação.",
@@ -1576,15 +1578,22 @@
         }
 
         function finishQuiz() {
-            // Calcular pontuação
-            const correctCount = correctAnswers.filter(correct => correct).length;
-            const totalQuestions = allQuestions.length;
-            const scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+            // Calcular pontuação (excluindo questões anuladas)
+            const validQuestions = allQuestions.filter(q => !q.anulada);
+            const validIndices = allQuestions.map((q, i) => q.anulada ? -1 : i).filter(i => i !== -1);
             
-            // Calcular desempenho por categoria
-            const legisQuestions = allQuestions.filter(q => q.category === 'Legislação');
-            const juridQuestions = allQuestions.filter(q => q.category === 'Jurídico');
-            const profQuestions = allQuestions.filter(q => q.category === 'Profissional');
+            let correctCount = 0;
+            validIndices.forEach(index => {
+                if (correctAnswers[index]) correctCount++;
+            });
+            
+            const totalValidQuestions = validQuestions.length;
+            const scorePercentage = totalValidQuestions > 0 ? Math.round((correctCount / totalValidQuestions) * 100) : 0;
+            
+            // Calcular desempenho por categoria (excluindo questões anuladas)
+            const legisQuestions = allQuestions.filter(q => q.category === 'Legislação' && !q.anulada);
+            const juridQuestions = allQuestions.filter(q => q.category === 'Jurídico' && !q.anulada);
+            const profQuestions = allQuestions.filter(q => q.category === 'Profissional' && !q.anulada);
             
             const correctLegis = legisQuestions.filter((q, i) => {
                 const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
@@ -1602,7 +1611,7 @@
             }).length;
             
             // Exibir resultados
-            scoreElement.textContent = `${correctCount}/${totalQuestions}`;
+            scoreElement.textContent = `${correctCount}/${totalValidQuestions}`;
             correctLegislacaoElement.textContent = `${correctLegis}/${legisQuestions.length}`;
             correctJuridicoElement.textContent = `${correctJurid}/${juridQuestions.length}`;
             correctProfissionalElement.textContent = `${correctProf}/${profQuestions.length}`;
@@ -1617,6 +1626,12 @@
                 message = 'Resultado regular. Recomenda-se revisar os conteúdos com mais atenção antes do exame.';
             } else {
                 message = 'É necessário estudar mais. Recomenda-se dedicar mais tempo à preparação para o EAP.';
+            }
+            
+            // Adicionar informação sobre questões anuladas
+            const anuladasCount = allQuestions.filter(q => q.anulada).length;
+            if (anuladasCount > 0) {
+                message += `\n\nNota: ${anuladasCount} questão(ões) foram anuladas e não foram consideradas na pontuação.`;
             }
             
             messageElement.textContent = message;
